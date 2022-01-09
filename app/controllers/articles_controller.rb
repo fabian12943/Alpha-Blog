@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
     article_params = params.require(:article).permit(:title, :description)
     @article = Article.new(article_params)
     if @article.save
-      redirect_to @article
+      redirect_to @article, notice: "Article was successfully created."
     else
       render 'new'
     end
