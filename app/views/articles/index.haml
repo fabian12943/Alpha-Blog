@@ -11,6 +11,6 @@
         %td= article.title
         %td= article.description
         %td
-          %a(href="/articles/#{article.id}") Show
-          %a(href="/articles/#{article.id}/edit") Edit
-
+          = link_to 'Show', article
+          = link_to 'Edit', edit_article_path(article)
+          = link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }
