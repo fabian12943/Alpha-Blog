@@ -1,22 +1,6 @@
 %h1 Create a new article
-%a(href="/articles") Return to articles listing
-// Print validation errors if any
-- if @article.errors.any?
-  %p.error
-    %strong The following errors prevented the article from being saved:
-    %ul
-      - @article.errors.full_messages.each do |msg|
-        %li
-          = msg
 
-= form_with scope: :article, url: articles_path, method: :post do |f|
-  %p 
-    = f.label :title 
-    %br/
-    = f.text_field :title
-  %p
-    = f.label :description 
-    %br/
-    = f.text_area :description
+= link_to 'Return to articles listing', articles_path
 
-  = f.submit "Create Article"
+= render 'validation_errors', article: @article
+= render 'form', article: @article
