@@ -1,0 +1,12 @@
+%h1 Create a new article
+= form_with scope: :article, url: articles_path, method: :post do |f|
+  %p 
+    = f.label :title 
+    %br/
+    = f.text_field :title
+  %p
+    = f.label :description 
+    %br/
+    = f.text_area :description
+
+  = f.submit "Create Article"
