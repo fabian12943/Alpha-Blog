@@ -97,6 +97,11 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.assets.precompile += %w( '.svg' )  
+
+  # Must include to get inline SVGs to work in deploy
+  config.assets.css_compressor = :sass
+
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
   # middleware. The `delay` is used to determine how long to wait after a write
