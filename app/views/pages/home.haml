@@ -1,5 +1,5 @@
 %main 
-  .bd-masthead.mb-3
+  .bd-masthead
     .container.px-4.px-md-3
       .row.align-items-lg-center
         .col-8.mx-auto.col-md-4.order-md-2.col-lg-5
@@ -14,11 +14,10 @@
             sanctus est Lorem ipsum dolor sit amet.
           .d-flex.flex-column.flex-md-row
           %button.btn.btn-primary.btn-lg{ type: 'button' } Let's do it!
-    .container.px-4.px-md-3.my-3
-      .row.align-items-lg-center.justify-content-center
-        .col-md-2.mx-2
-          %h3 Check out the freshest new articles...
-        .col-md-3
+    .container.px-4.px-md-3.mt-5
+      %h3.text-center Check out the freshest new articles...
+      .row.align-items-lg-center.justify-content-center.mt-5
+        .col-lg-3.d-flex.align-self-stretch
           .card
             %a.stretched-link{:href => "#"}
             .card-header 
@@ -28,7 +27,7 @@
               17-year-old reported missing
               %p.card-text Huge worries about Niklas T.! The 17-year-old from 
               the vicinity of Munich has been reported missing [...]
-        .col-md-3
+        .col-lg-3.d-flex.align-self-stretch
           .card
             %a.stretched-link{:href => "#"}
             .card-header 
@@ -36,9 +35,8 @@
             .card-body
               %h5.card-title Study: shoplifting far cheaper than paying for goods
               %p.card-text Who says crime doesn’t pay? Experts at the University
-              at the international market research company Nielsen Holdings 
-              PLC recently discovered [...]
-        .col-md-3
+              at the international market research company [...]
+        .col-lg-3.d-flex.align-self-stretch
           .card
             %a.stretched-link{:href => "#"}
             .card-header 
@@ -48,3 +46,14 @@
               %p.card-text Windows is finally going green: there is now an update 
               available for Microsoft’s Windows 10 which will introduce waste 
               separation to [...]
+        .col-lg-3.d-flex.align-self-stretch
+          .card
+            %a.stretched-link{:href => "#"}
+            .card-header 
+              %strong Martin Messer
+            .card-body
+              %h5.card-title Microsoft introduces five bins to sort files for recycling
+              %p.card-text Windows is finally going green: there is now an update 
+              available for Microsoft’s Windows 10 which will introduce waste 
+              separation to [...]
+
