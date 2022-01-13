@@ -1,7 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 body {
-  padding-top: 70px; 
+  padding-top: 70px; // Size of the navbar
+  margin-bottom: 2rem;
 }
 
 .bd-navbar {
@@ -35,6 +36,11 @@ body {
   }
 }
 
+svg { 
+  width: 100%; 
+  height: 100%;
+}
+
 .bd-masthead p:not(.lead) {
   color:#495057
 }
@@ -56,15 +62,15 @@ body {
   }
 }
 
-.bd-masthead .card {
+.newest_articles .card {
   margin: 0.25rem;
 }
 
-.bd-masthead .card-header {
+.newest_articles .card-header {
   background-color: #ecf0ff;
 }
 
-.bd-masthead .card:hover{
+.newest_articles .card:hover{
   transform: scale(1.01);
   box-shadow: 0 5px 10px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
