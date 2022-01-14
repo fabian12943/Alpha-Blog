@@ -1,18 +1,18 @@
-%h1 Articles listing page
-%table 
-  %thead 
-    %tr 
-      %th Title
-      %th Description
-      %th Actions
-  %tbody
-    - @articles.each do |article|
-      %tr
-        %td= article.title
-        %td= article.description
-        %td
-          = link_to 'Show', article
-          = link_to 'Edit', edit_article_path(article)
-          = link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }
-%p
-  = link_to "Create new article", new_article_path
+%main
+  %h1.text-center.mt-4 All articles
+  .container.all-articles
+    .row.align-items-lg-center.justify-content-center.mt-3
+      - @articles.each do |article|
+        .col-auto.d-flex.align-self-stretch
+          .card.text-center.my-3
+            .card-header by Fabian Schwarz
+            .card-body
+              %h5.card-title= article.title
+              %p.card-text= article.description
+              = link_to 'Show', article, class:'btn btn-primary'
+              = link_to 'Edit', edit_article_path(article), class:'btn btn-primary'
+              = link_to 'Delete', article, class:'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' }
+            .card-footer.text-muted
+              %small Last updated 3 mins ago
+
+  = link_to 'New Article', new_article_path, class:'btn btn-primary align-items-lg-center'
