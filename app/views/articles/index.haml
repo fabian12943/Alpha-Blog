@@ -10,9 +10,10 @@
             .card-body
               %h5.card-title= truncate(article.title, length: 100, separator: /\s/, omission: ' [...]')
               %p.card-text= truncate(article.description, length: 300, separator: /\s/, omission: ' [...]')
-              = link_to 'Show', article, class:'btn btn-primary'
-              = link_to 'Edit', edit_article_path(article), class:'btn btn-primary'
-              = link_to 'Delete', article, class:'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' }
+              .overlap-streched-link
+                = link_to 'Show', article, class:'btn btn-outline-success'
+                = link_to 'Edit', edit_article_path(article), class:'btn btn-outline-primary'
+                = link_to 'Delete', article, class:'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' }
             .card-footer.text-muted
               %small Last updated 3 mins ago
 

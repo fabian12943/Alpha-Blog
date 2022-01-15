@@ -96,3 +96,8 @@ svg {
   letter-spacing: -1px;
   font-weight: bold;
 }
+
+.card .overlap-streched-link {
+  position: relative;
+  z-index: 1;
+}
