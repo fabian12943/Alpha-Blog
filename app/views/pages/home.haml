@@ -28,4 +28,4 @@
                 %small.text-muted= @dates[i]
               .card-body
                 %h5.card-title= @titles[i]
-                %p.card-text= @descriptions[i]
+                %p.card-text= truncate(@descriptions[i], length: 130, separator: /\s/, omission: ' [...]')
