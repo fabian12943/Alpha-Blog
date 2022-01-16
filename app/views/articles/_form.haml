@@ -1,11 +1,16 @@
-= form_with(model: article, local: true) do |f|
-  %p 
-    = f.label :title 
-    %br/
-    = f.text_field :title
-  %p
-    = f.label :description 
-    %br/
-    = f.text_area :description
-  = f.submit "Update Article" if controller.action_name.in?(['edit', 'update'])
-  = f.submit "Create Article" if controller.action_name.in?(['new', 'create'])
+.mt-4
+  = form_with(model: article, class: "shadow p-3 mb-5 bg-light-blue rounded", local: true) do |f|
+    .form-group.row.mt-3
+      = f.label :title, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'title'
+      .col-md-10.col-sm-9
+        = f.text_field :title, class: 'form-control shadow-sm rounded', id: 'title', placeholder: 'Title of your article'
+    .form-group.row.mt-3
+      = f.label :description, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'description'
+      .col-md-10.col-sm-9
+        = f.text_area :description, class: 'form-control shadow-sm rounded', id: 'description', placeholder: 'Description of your article', rows: 10
+    .form-group.row.mt-3.justify-content-end
+      .col-auto
+        - submit_label_name = article.persisted? ? 'Update' : 'Create'
+        = f.submit class: "btn btn-outline-success btn-lg" #{submit_label_name}
+       
+    
