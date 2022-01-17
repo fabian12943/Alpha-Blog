@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_prev_page, only: [:edit]
 
   def index
     @articles = Article.all
@@ -39,6 +40,10 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :description)
+  end
+
+  def set_prev_page
+    @prev_page = request.referer || articles_path
   end
 
 end

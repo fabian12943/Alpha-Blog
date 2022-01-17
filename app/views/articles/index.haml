@@ -4,7 +4,7 @@
     .row.align-items-lg-center.justify-content-center
       - @articles.each do |article|
         .col-lg-6.d-flex.align-self-stretch
-          .card.text-center.my-3
+          .card.text-center.my-3.clickable
             = link_to '', article, class: 'stretched-link'
             .card-header by Fabian Schwarz
             .card-body

@@ -20,7 +20,7 @@
       .row.align-items-lg-center.justify-content-center.mt-3
         - (@names.length).times do |i|
           .col-lg-3.col-md-6.d-flex.align-self-stretch
-            .card
+            .card.clickable
               %a.stretched-link{:href => "#"}
               .card-header 
                 %strong= @names[i]
