@@ -7,5 +7,5 @@
             = link_to "Go back", articles_path, class:'btn btn-outline-danger btn-lg d-none d-lg-block'
             = link_to "<<", articles_path, class:'btn btn-outline-danger btn-md d-block d-lg-none'
           %h1.text-center.col-8 Create new article
-        = render 'validation_errors', article: @article
+        = render 'shared/error_alert', model: @article
         = render 'form', article: @article

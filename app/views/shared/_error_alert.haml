@@ -1,0 +1,7 @@
+- if model.errors.any?
+  .mt-4
+    .alert.alert-danger.alert-dismissible.fade.show{:role => "alert"}
+      - model_name = model.class.name.downcase
+      - error_msgs = { create: "#{model.errors.count} error(s) prevented the #{model_name} from being created. Please check the error(s) listed in the form below.", update: "#{model.errors.count} error(s) prevented the #{model_name} from being updated. Please check the error(s) listed in the form below." }
+      %strong= error_msgs[action_name.to_sym]
+      %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
