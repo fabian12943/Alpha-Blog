@@ -1,2 +1,7 @@
-- flash.each do |type, msg|
-  = msg
+- if flash.any?
+  .container.mt-4
+    .alert.alert-success.alert-dismissible.fade.show{:role => "alert"}
+      %strong
+        - flash.each do |type, msg|
+          = msg
+      %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
