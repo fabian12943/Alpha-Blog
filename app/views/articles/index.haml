@@ -7,10 +7,10 @@
           .card.text-center.my-3.clickable
             = link_to '', article, class: 'stretched-link'
             .card-header by Fabian Schwarz
-            .card-body
+            .card-body.d-flex.flex-column
               %h5.card-title= truncate(article.title, length: 100, separator: /\s/, omission: ' [...]')
               %p.card-text= truncate(article.description, length: 300, separator: /\s/, omission: ' [...]')
-              .overlap-streched-link
+              .overlap-streched-link.mt-auto
                 = link_to 'Show', article, class:'btn btn-outline-success'
                 = link_to 'Edit', edit_article_path(article), class:'btn btn-outline-primary'
                 = link_to 'Delete', article, class:'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' }
