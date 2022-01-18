@@ -6,8 +6,13 @@
         %span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         %ul.navbar-nav.me-auto.mb-2.mb-lg-0
-          %li.nav-item
-            = link_to "Articles", articles_path, class: "nav-link"
+          %li.nav-item.dropdown
+            %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+              Articles
+            %ul.dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+              %li
+                = link_to "View articles", articles_path, class: "dropdown-item"
+                = link_to 'Create new article', new_article_path, class:'dropdown-item'
           %li.nav-item
             = link_to "About", about_path, class: "nav-link"
         %form.d-flex

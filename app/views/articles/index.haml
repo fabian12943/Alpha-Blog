@@ -15,5 +15,3 @@
               = link_to 'Delete', article, class:'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' }
           .card-footer.text-muted
             %small= "Created #{time_ago_in_words(article.created_at)} ago, edited #{time_ago_in_words(article.updated_at)} ago"
-
-= link_to 'New Article', new_article_path, class:'btn btn-primary align-items-lg-center'
