@@ -1,31 +1,30 @@
-%main 
-  .bd-masthead
-    .container.px-4.px-md-3
-      .row.align-items-lg-center
-        .col-lg-5.mx-auto.order-lg-2.mb-4.mb-lg-0
-          = show_svg('content_manager.svg')
-        .col-lg-7.order-lg-1.text-center.text-md-start
-          %h1.mb-3 Welcome to the infamous Alpha-Blog 😉
-          %p.lead.mb-4
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
-            erat, sed diam voluptua. At vero eos et accusam et justo duo 
-            dolores et ea rebum. Stet clita kasd gubergren, no sea takimata 
-            sanctus est Lorem ipsum dolor sit amet.
-          .d-flex.flex-column.flex-md-row
-          %button.btn.btn-primary.btn-lg{ type: 'button' } Let's do it!
-  .newest_articles
-    .container.px-4.px-md-3
-      %h3.text-center Check out the freshest new articles...
-      .row.align-items-lg-center.justify-content-center.mt-3
-        - (@names.length).times do |i|
-          .col-lg-3.col-md-6.d-flex.align-self-stretch
-            .card.clickable
-              %a.stretched-link{:href => "#"}
-              .card-header 
-                %strong= @names[i]
-                %br
-                %small.text-muted= @dates[i]
-              .card-body
-                %h5.card-title= @titles[i]
-                %p.card-text= truncate(@descriptions[i], length: 130, separator: /\s/, omission: ' [...]')
+.bd-masthead
+  .container.px-4.px-md-3
+    .row.align-items-lg-center
+      .col-lg-5.mx-auto.order-lg-2.mb-4.mb-lg-0
+        = show_svg('content_manager.svg')
+      .col-lg-7.order-lg-1.text-center.text-md-start
+        %h1.mb-3 Welcome to the infamous Alpha-Blog 😉
+        %p.lead.mb-4
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
+          erat, sed diam voluptua. At vero eos et accusam et justo duo 
+          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata 
+          sanctus est Lorem ipsum dolor sit amet.
+        .d-flex.flex-column.flex-md-row
+        %button.btn.btn-primary.btn-lg{ type: 'button' } Let's do it!
+.newest_articles
+  .container.px-4.px-md-3
+    %h3.text-center Check out the freshest new articles...
+    .row.align-items-lg-center.justify-content-center.mt-3
+      - (@names.length).times do |i|
+        .col-lg-3.col-md-6.d-flex.align-self-stretch
+          .card.clickable
+            %a.stretched-link{:href => "#"}
+            .card-header 
+              %strong= @names[i]
+              %br
+              %small.text-muted= @dates[i]
+            .card-body
+              %h5.card-title= @titles[i]
+              %p.card-text= truncate(@descriptions[i], length: 130, separator: /\s/, omission: ' [...]')

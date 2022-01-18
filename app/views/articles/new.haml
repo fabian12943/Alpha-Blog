@@ -1,11 +1,10 @@
-%main
-  .container.mt-4
-    .row.justify-content-center
-      .col-12.col-lg-10
-        .row
-          .col-2.d-flex.align-items-center
-            = link_to "Go back", articles_path, class:'btn btn-outline-danger btn-lg d-none d-lg-block'
-            = link_to "<<", articles_path, class:'btn btn-outline-danger btn-md d-block d-lg-none'
-          %h1.text-center.col-8 Create new article
-        = render 'shared/error_alert', model: @article
-        = render 'form', article: @article
+.container.mt-4
+  .row.justify-content-center
+    .col-12.col-lg-10
+      .row
+        .col-2.d-flex.align-items-center
+          = link_to "Go back", articles_path, class:'btn btn-outline-danger btn-lg d-none d-lg-block'
+          = link_to "<<", articles_path, class:'btn btn-outline-danger btn-md d-block d-lg-none'
+        %h1.text-center.col-8 Create new article
+      = render 'shared/error_alert', model: @article
+      = render 'form', article: @article

@@ -1,20 +1,19 @@
-%main
-  %h1.text-center.mt-4 All articles
-  .container.all-articles.mt-3
-    .row.align-items-lg-center.justify-content-center
-      - @articles.each do |article|
-        .col-lg-6.d-flex.align-self-stretch
-          .card.text-center.my-3.clickable
-            = link_to '', article, class: 'stretched-link'
-            .card-header by Fabian Schwarz
-            .card-body.d-flex.flex-column
-              %h5.card-title= truncate(article.title, length: 100, separator: /\s/, omission: ' [...]')
-              %p.card-text= truncate(article.description, length: 300, separator: /\s/, omission: ' [...]')
-              .overlap-streched-link.mt-auto
-                = link_to 'Show', article, class:'btn btn-outline-success'
-                = link_to 'Edit', edit_article_path(article), class:'btn btn-outline-primary'
-                = link_to 'Delete', article, class:'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' }
-            .card-footer.text-muted
-              %small= "Created #{time_ago_in_words(article.created_at)} ago, edited #{time_ago_in_words(article.updated_at)} ago"
+%h1.text-center.mt-4 All articles
+.container.all-articles.mt-3
+  .row.align-items-lg-center.justify-content-center
+    - @articles.each do |article|
+      .col-lg-6.d-flex.align-self-stretch
+        .card.text-center.my-3.clickable
+          = link_to '', article, class: 'stretched-link'
+          .card-header by Fabian Schwarz
+          .card-body.d-flex.flex-column
+            %h5.card-title= truncate(article.title, length: 100, separator: /\s/, omission: ' [...]')
+            %p.card-text= truncate(article.description, length: 300, separator: /\s/, omission: ' [...]')
+            .overlap-streched-link.mt-auto
+              = link_to 'Show', article, class:'btn btn-outline-success'
+              = link_to 'Edit', edit_article_path(article), class:'btn btn-outline-primary'
+              = link_to 'Delete', article, class:'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' }
+          .card-footer.text-muted
+            %small= "Created #{time_ago_in_words(article.created_at)} ago, edited #{time_ago_in_words(article.updated_at)} ago"
 
-  = link_to 'New Article', new_article_path, class:'btn btn-primary align-items-lg-center'
+= link_to 'New Article', new_article_path, class:'btn btn-primary align-items-lg-center'

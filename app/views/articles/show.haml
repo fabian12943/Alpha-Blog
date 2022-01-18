@@ -1,23 +1,22 @@
-%main
-  .container.mt-4
-    .row.justify-content-center
-      .col-12.col-lg-10
-        .row
-          .col-2.d-flex.align-items-center
-            = link_to "Go back", articles_path, class:'btn btn-outline-danger btn-lg d-none d-lg-block'
-            = link_to "<<", articles_path, class:'btn btn-outline-danger btn-md d-block d-lg-none'
-          .col-10.d-flex.align-items-center.justify-content-end
-            = link_to 'Edit', edit_article_path(@article), class:'btn btn-outline-primary btn-lg d-none d-lg-block mx-2'
-            = link_to "Edit", edit_article_path(@article), class:'btn btn-outline-primary btn-md d-block d-lg-none mx-2'
-            = link_to 'Delete', @article, class:'btn btn-outline-danger btn-lg d-none d-lg-block', method: :delete, data: { confirm: 'Are you sure?' }
-            = link_to 'Delete', @article, class:'btn btn-outline-danger btn-md d-block d-lg-none', method: :delete, data: { confirm: 'Are you sure?' }
-        .mt-4
-          .card.text-center.my-3
-            .card-header.text-muted.d-flex.justify-content-end
-              %small= "Created #{time_ago_in_words(@article.created_at)} ago, edited #{time_ago_in_words(@article.updated_at)} ago"
-            .card-body
-              %h2.card-title.mx-auto.w-md-75= @article.title
-              .lead.text-muted= "by Fabian Schwarz"
-              %hr.mx-auto.w-50
-              .card-text.text-start= simple_format(@article.description)
-            .card-footer.text-muted
+.container.mt-4
+  .row.justify-content-center
+    .col-12.col-lg-10
+      .row
+        .col-2.d-flex.align-items-center
+          = link_to "Go back", articles_path, class:'btn btn-outline-danger btn-lg d-none d-lg-block'
+          = link_to "<<", articles_path, class:'btn btn-outline-danger btn-md d-block d-lg-none'
+        .col-10.d-flex.align-items-center.justify-content-end
+          = link_to 'Edit', edit_article_path(@article), class:'btn btn-outline-primary btn-lg d-none d-lg-block mx-2'
+          = link_to "Edit", edit_article_path(@article), class:'btn btn-outline-primary btn-md d-block d-lg-none mx-2'
+          = link_to 'Delete', @article, class:'btn btn-outline-danger btn-lg d-none d-lg-block', method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Delete', @article, class:'btn btn-outline-danger btn-md d-block d-lg-none', method: :delete, data: { confirm: 'Are you sure?' }
+      .mt-4
+        .card.text-center.my-3
+          .card-header.text-muted.d-flex.justify-content-end
+            %small= "Created #{time_ago_in_words(@article.created_at)} ago, edited #{time_ago_in_words(@article.updated_at)} ago"
+          .card-body
+            %h2.card-title.mx-auto.w-md-75= @article.title
+            .lead.text-muted= "by Fabian Schwarz"
+            %hr.mx-auto.w-50
+            .card-text.text-start= simple_format(@article.description)
+          .card-footer.text-muted

@@ -4,9 +4,13 @@ $primary-blue: #0B5ED7;
 @import 'bootstrap/dist/css/bootstrap';
 
 body {
-  padding-top: 70px; // Size of the navbar
-  margin-bottom: 2rem;
+  padding-top: 50px; // Size of the navbar
   height: 100%;
+}
+
+.main {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 
 .bd-navbar {
