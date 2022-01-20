@@ -1,3 +1,4 @@
+= render 'shared/error_alert', model: article
 .mt-4
   = form_with(model: article, class: "shadow p-3 mb-5 bg-light-blue rounded", local: true) do |f|
     - invalid = article.errors.include?(:title)
