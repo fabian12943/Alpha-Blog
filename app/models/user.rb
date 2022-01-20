@@ -6,4 +6,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { minimum: 2, maximum: 25 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }, email: true, length: { maximum: 100 }
 
+  def fullname
+    "#{first_name} #{last_name}"
+  end
 end
