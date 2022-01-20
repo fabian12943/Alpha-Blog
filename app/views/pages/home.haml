@@ -17,14 +17,14 @@
   .container.px-4.px-md-3
     %h3.text-center Check out the freshest new articles...
     .row.align-items-lg-center.justify-content-center.mt-3
-      - (@names.length).times do |i|
-        .col-lg-3.col-md-6.d-flex.align-self-stretch
+      - @articles.each do |article|
+        .col-lg-4.col-md-6.d-flex.align-self-stretch
           .card.clickable
-            %a.stretched-link{:href => "#"}
+            %a.stretched-link{href: "#{article_path(article)}"}
             .card-header 
-              %strong= @names[i]
+              %strong= article.user.fullname
               %br
-              %small.text-muted= @dates[i]
+              %small.text-muted= article.created_at
             .card-body
-              %h5.card-title= @titles[i]
-              %p.card-text= truncate(@descriptions[i], length: 130, separator: /\s/, omission: ' [...]')
+              %h5.card-title= article.title
+              %p.card-text= truncate(article.description, length: 130, separator: /\s/, omission: ' [...]')
