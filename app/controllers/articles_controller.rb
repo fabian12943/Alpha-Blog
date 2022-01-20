@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user = User.first # TODO: change to real user as soon as authentication is implemented
     if @article.save
       redirect_to @article, notice: "Article was successfully created."
     else
