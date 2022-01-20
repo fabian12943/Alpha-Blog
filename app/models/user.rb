@@ -11,6 +11,6 @@ class User < ApplicationRecord
   before_save { self.last_name.downcase! }
 
   def fullname
-    "#{first_name} #{last_name}"
+    "#{first_name.titleize} #{last_name.titleize}"
   end
 end
