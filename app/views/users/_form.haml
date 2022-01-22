@@ -48,6 +48,7 @@
             .li= error_message
     .form-group.row.mt-3.justify-content-end
       .col-auto
-        = f.submit 'Sign up', class: "btn btn-outline-success btn-lg"
+        - submit_label_name = user.persisted? ? 'Update account' : 'Sign up'
+        = f.submit submit_label_name, class: "btn btn-outline-success btn-lg"
        
     
