@@ -18,5 +18,5 @@
     %h3.text-center Check out the freshest new articles...
     .row.align-items-lg-center.justify-content-center.mt-3
       - @articles.each do |article|
-        .col-lg-6.d-flex.align-self-stretch
+        .col-lg-4.d-flex.align-self-stretch
           = render 'articles/article', article: article
