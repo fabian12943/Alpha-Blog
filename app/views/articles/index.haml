@@ -2,4 +2,5 @@
 .container.all-articles.mt-3
   .row.align-items-lg-center.justify-content-center
     - @articles.each do |article|
-      = render 'article', article: article
+      .col-lg-6.d-flex.align-self-stretch
+        = render 'article', article: article

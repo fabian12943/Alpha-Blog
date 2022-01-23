@@ -6,4 +6,5 @@
     %h3.text-center= "All articles by #{@user.fullname}"
     .row.align-items-lg-center.justify-content-center
       - @user.articles.each do |article|
-        = render 'articles/article', article: article
+        .col-lg-6.d-flex.align-self-stretch
+          = render 'articles/article', article: article
