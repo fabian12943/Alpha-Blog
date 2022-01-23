@@ -1,0 +1,9 @@
+.col-lg-6.d-flex.align-self-stretch
+  .card.text-center.my-3.clickable
+    = link_to '', article, class: 'stretched-link'
+    .card-header by #{article.user.fullname}
+    .card-body.d-flex.flex-column
+      %h5.card-title= truncate(article.title, length: 100, separator: /\s/, omission: ' [...]')
+      %p.card-text= truncate(article.description, length: 300, separator: /\s/, omission: ' [...]')
+    .card-footer.text-muted
+      %small= "Created #{time_ago_in_words(article.created_at)} ago, edited #{time_ago_in_words(article.updated_at)} ago"

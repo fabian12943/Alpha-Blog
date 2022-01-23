@@ -18,13 +18,4 @@
     %h3.text-center Check out the freshest new articles...
     .row.align-items-lg-center.justify-content-center.mt-3
       - @articles.each do |article|
-        .col-lg-4.col-md-6.d-flex.align-self-stretch
-          .card.clickable
-            %a.stretched-link{href: "#{article_path(article)}"}
-            .card-header 
-              %strong= article.user.fullname
-              %br
-              %small.text-muted= article.created_at
-            .card-body
-              %h5.card-title= article.title
-              %p.card-text= truncate(article.description, length: 130, separator: /\s/, omission: ' [...]')
+        = render 'articles/article', article: article
