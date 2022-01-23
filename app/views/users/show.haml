@@ -1,0 +1,9 @@
+.container.mt-4
+  %h1.text-center= @user.fullname + "'s profile"
+  %h3.text-center.text-muted= "@" + @user.username
+  = image_tag gravatar_url_for(@user, size: 256), class: "avatar mx-auto d-block shadow mt-3", alt: "Avatar of #{@user.fullname}"
+  .container.all-articles.mt-5
+    %h3.text-center= "All articles by #{@user.fullname}"
+    .row.align-items-lg-center.justify-content-center
+      - @user.articles.each do |article|
+        = render 'articles/article', article: article
