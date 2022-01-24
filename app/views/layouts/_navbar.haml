@@ -13,6 +13,8 @@
               %li
                 = link_to "View articles", articles_path, class: "dropdown-item"
                 = link_to 'Create new article', new_article_path, class:'dropdown-item'
+          %li.nav-item
+            = link_to "Bloggers", users_path, class: "nav-link"
         %form.d-flex.mb-2.mb-lg-0
           %input.form-control.me-4{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
         %ul.navbar-nav.list-group.list-group-horizontal
