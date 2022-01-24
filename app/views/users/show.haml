@@ -2,7 +2,7 @@
   %h1= @user.fullname + "'s profile"
   %h3.text-muted= "@" + @user.username
   .mt-3
-    = image_tag gravatar_url_for(@user, size: 256), class: "avatar mx-auto d-block shadow mt-3", alt: "Avatar of #{@user.fullname}"
+    = image_tag gravatar_url_for(@user, size: 200), class: "avatar mx-auto d-block shadow mt-3", alt: "Avatar of #{@user.fullname}"
   .mt-4
     = link_to 'Edit profile information', edit_user_url(@user), class: 'btn btn-outline-primary btn-lg', type: 'button'
   .container.all-articles.mt-4
