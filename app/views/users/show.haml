@@ -3,7 +3,7 @@
   %h3.text-center.text-muted= "@" + @user.username
   = image_tag gravatar_url_for(@user, size: 256), class: "avatar mx-auto d-block shadow mt-3", alt: "Avatar of #{@user.fullname}"
   .container.all-articles.mt-5
-    %h3.text-center= "All articles by #{@user.fullname}"
+    %h3.text-center= @user.articles.count > 0 ? "All articles by #{@user.fullname}" : "Unfortunately #{@user.fullname} has not <br> published any articles yet 😔".html_safe
     .row.align-items-lg-center.justify-content-center
       - @user.articles.each do |article|
         .col-lg-6.d-flex.align-self-stretch
