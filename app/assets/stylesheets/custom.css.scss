@@ -81,6 +81,7 @@ svg {
 }
 
 .card {
+  width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -94,10 +95,6 @@ svg {
 
 .card-header {
   font-style: italic;
-}
-
-.card {
-  width: 100%;
 }
 
 .clickable.card:hover{
