@@ -16,7 +16,9 @@
             %small= "Created #{time_ago_in_words(@article.created_at)} ago, edited #{time_ago_in_words(@article.updated_at)} ago"
           .card-body
             %h2.card-title.mx-auto.w-md-75= @article.title
-            .lead.text-muted= "by #{@article.user.fullname}"
+            %p.lead.text-muted
+              by 
+              = link_to @article.user.fullname, user_path(@article.user), class:'user-link'
             %hr.mx-auto.w-50
             .card-text.text-start= simple_format(@article.description)
           .card-footer.text-muted

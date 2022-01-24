@@ -97,6 +97,17 @@ svg {
   font-style: italic;
 }
 
+a.user-link {
+  text-decoration: none;
+  color: inherit;
+  z-index: 1;
+  position: relative;
+}
+
+a.user-link:hover {
+  text-decoration: underline;
+}
+
 .clickable.card:hover{
   transform: scale(1.01);
   box-shadow: 0 5px 10px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);

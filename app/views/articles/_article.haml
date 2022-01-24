@@ -1,6 +1,8 @@
 .card.text-center.my-3.clickable
   = link_to '', article, class: 'stretched-link'
-  .card-header by #{article.user.fullname}
+  .card-header 
+    by 
+    = link_to article.user.fullname, user_path(article.user), class:'user-link'
   .card-body.d-flex.flex-column
     %h5.card-title= truncate(article.title, length: 100, separator: /\s/, omission: ' [...]')
     %p.card-text= truncate(article.description, length: 300, separator: /\s/, omission: ' [...]')
