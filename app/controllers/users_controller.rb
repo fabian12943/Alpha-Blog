@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to articles_path, notice: "Welcome to the Alpha Blog, #{@user.fullname}! You have successfully signed up."
+      redirect_to @user, notice: "Welcome to the Alpha Blog, #{@user.fullname}! You have successfully signed up."
     else
       render 'new'
     end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to articles_path, notice: "Your account informations were successfully updated."
+      redirect_to @user, notice: "Your account informations were successfully updated."
     else
       render 'edit'
     end
