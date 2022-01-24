@@ -10,8 +10,7 @@ module ApplicationHelper
     email = user.email
     hash = Digest::MD5.hexdigest(email)
     size = options[:size]
-    gravatar_url = "https://www.gravatar.com/avatar/#{hash}?s=#{size}&d=robohash"
-    #image_tag(gravatar_url, alt: user.fullname, class: "gravatar")
+    "https://www.gravatar.com/avatar/#{hash}?s=#{size}&d=robohash"
   end
 
 end
