@@ -1,16 +1,19 @@
 %h1.text-center.mt-4 All bloggers
-.container.all-articles.mt-3
-  .row.align-items-lg-center.justify-content-center
-    - @users.each do |user|
-      .col-lg-3.col-md-4.col-sm-6.d-flex.align-self-stretch
-        .card.text-center.my-3.clickable
-          = link_to '', user, class: 'stretched-link'
-          .card-header 
-            %h4= user.fullname
-            %h6.text-muted @#{user.username}
-          .card-body.d-flex.flex-column
-            = image_tag gravatar_url_for(user, size: 150), class: "avatar mx-auto d-block shadow", alt: "Avatar of #{user.fullname}"
-            .mt-4
-              %p.card-text= pluralize(user.articles.count, "article")
-          .card-footer.text-muted
-            %small.text-muted= "Joined #{time_ago_in_words(user.created_at)} ago"
+.cards-page
+  .container.all-articles.mt-3
+    .row.align-items-lg-center.justify-content-center
+      - @users.each do |user|
+        .col-lg-3.col-md-4.col-sm-6.d-flex.align-self-stretch
+          .card.text-center.my-3.clickable
+            = link_to '', user, class: 'stretched-link'
+            .card-header 
+              %h4= user.fullname
+              %h6.text-muted @#{user.username}
+            .card-body.d-flex.flex-column
+              = image_tag gravatar_url_for(user, size: 150), class: "avatar mx-auto d-block shadow", alt: "Avatar of #{user.fullname}"
+              .mt-4
+                %p.card-text= pluralize(user.articles.count, "article")
+            .card-footer.text-muted
+              %small.text-muted= "Joined #{time_ago_in_words(user.created_at)} ago"
+  .container.mt-5.pagination.justify-content-center
+    = will_paginate @articles, previous_label: 'Previous', next_label: 'Next'
