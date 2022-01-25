@@ -62,3 +62,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "haml", "~> 5.2"
 
 gem "faker", "~> 2.19"
+
+gem "will_paginate", "~> 3.3"
