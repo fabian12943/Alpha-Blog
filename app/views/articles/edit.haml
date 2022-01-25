@@ -1,9 +1,5 @@
 .container.mt-4
   .row.justify-content-center
     .col-12.col-lg-10
-      .row
-        .col-2.d-flex.align-items-center
-          = link_to "Go back", @prev_page, class:'btn btn-outline-danger btn-lg d-none d-lg-block'
-          = link_to "<<", @prev_page, class:'btn btn-outline-danger btn-md d-block d-lg-none'
-        %h1.text-center.col-8 Edit article
+      %h1.text-center Edit article
       = render 'form', article: @article
