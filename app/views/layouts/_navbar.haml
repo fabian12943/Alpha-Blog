@@ -17,8 +17,10 @@
             = link_to "Bloggers", users_path, class: "nav-link"
         %form.d-flex.mb-2.mb-lg-0
           %input.form-control.me-4{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
-        %ul.navbar-nav.list-group.list-group-horizontal
-          %li.nav-item
-            = link_to "Log in", '#', class: "nav-link"
+        %ul.navbar-nav
+          %li.nav-item.dropdown
+            %a#navbarDropdown.nav-link{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", "data-bs-auto-close" => "outside", :href => "#", :role => "button"}
+              Log in
+            = render 'layouts/dropdown_login'
           %li.nav-item
             = link_to 'Sign up', signup_path, class: 'btn btn-success'

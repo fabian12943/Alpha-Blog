@@ -1,0 +1,17 @@
+.dropdown-menu.dropdown-menu-end.mb-3.mb-lg-0{"aria-labelledby" => "navbarDropdown", id: "dropdown-login"}
+  .container-fluid
+    = form_with(scope: :session, url: login_path, local: true) do |f|
+      .form-group.mb-2
+        .input-group
+          %span#email.input-group-text @
+          = f.email_field :email, class: "form-control", "aria-describedby" => "email", "aria-label" => "Email", placeholder: "Email", type: "text"
+      .form-group.mb-2
+        .input-group
+          %span#password.input-group-text
+            %i.bi.bi-key-fill
+          = f.password_field :password, class: "form-control", "aria-describedby" => "password", "aria-label" => "Password", placeholder: "Password", type: "password"
+      .form-group.row.mt-3.justify-content-center
+        .col-auto
+          = f.submit "Log in", class: "btn btn-outline-primary btn-md"
+    %small.d-flex.justify-content-center.mt-2
+      = link_to "Forgot your password?", "#", class: "text-muted"
