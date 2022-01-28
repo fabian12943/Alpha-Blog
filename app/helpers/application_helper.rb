@@ -13,4 +13,11 @@ module ApplicationHelper
     "https://www.gravatar.com/avatar/#{hash}?s=#{size}&d=robohash"
   end
 
+  def flash_class(type)
+    case type
+    when "notice" then "alert alert-success"
+    when "alert" then "alert alert-danger"
+    end
+  end
+
 end

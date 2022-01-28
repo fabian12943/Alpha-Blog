@@ -1,7 +1,7 @@
 - if flash.any?
-  .container.mt-4
-    .alert.alert-success.alert-dismissible.fade.show{:role => "alert"}
-      %strong
-        - flash.each do |type, msg|
+  .container
+    - flash.each do |type, msg|
+      %div{class: "alert #{flash_class(type).to_s} alert-dismissible fade show mt-4", role: "alert"}
+        %strong
           = msg
-      %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
+        %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
