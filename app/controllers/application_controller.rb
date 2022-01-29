@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def require_login
+    if !logged_in?
+      redirect_to articles_path, alert: "Whoops! You must be logged in to access this page."
+    end
+  end
+
 end

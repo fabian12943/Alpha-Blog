@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_prev_page, only: [:edit]
+  before_action :require_login, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.paginate(page: params[:page], per_page: 10)
@@ -45,6 +47,12 @@ class ArticlesController < ApplicationController
 
   def set_prev_page
     @prev_page = request.referer || articles_path
+  end
+
+  def require_same_user
+    if current_user != @article.user
+      redirect_to @article, alert: "You are not authorized to edit or delete this article."
+    end
   end
 
 end
