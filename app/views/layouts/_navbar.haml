@@ -17,7 +17,15 @@
             = link_to "Bloggers", users_path, class: "nav-link"
         %form.d-flex.mb-2.mb-lg-0
           %input.form-control.me-4{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
-        - if session[:user_id].nil?
+        - if logged_in?
+          %ul.navbar-nav
+            %li.nav-item
+              .d-flex.align-items-center.justify-content-center
+                = link_to image_tag(gravatar_url_for(current_user, size: 35), class: 'avatar shadow', alt: "Avatar of #{current_user.fullname}"), user_path(current_user)
+                = link_to current_user.fullname, user_path(current_user), class: "nav-link"
+            %li.nav-item
+              = link_to 'Log out', logout_path, class: 'btn btn-danger', method: :delete
+        - else 
           %ul.navbar-nav
             %li.nav-item.dropdown
               %a#navbarDropdown.nav-link{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", "data-bs-auto-close" => "outside", :href => "#", :role => "button"}
@@ -25,8 +33,4 @@
               = render 'layouts/dropdown_login'
             %li.nav-item
               = link_to 'Sign up', signup_path, class: 'btn btn-success'
-        - else 
-          %ul.navbar-nav
-            %li.nav-item
-              = link_to 'Log out', logout_path, class: 'btn btn-danger', method: :delete
 
