@@ -20,8 +20,4 @@ module ApplicationHelper
     end
   end
 
-  def logged_in?
-    !!current_user
-  end
-
 end
