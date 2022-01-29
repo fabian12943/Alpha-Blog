@@ -27,7 +27,7 @@
               .d-flex.justify-content-center.align-items-center
                 = link_to image_tag(gravatar_url_for(current_user, size: 35), class: 'avatar shadow', alt: "Avatar of #{current_user.fullname}"), user_path(current_user)
                 = link_to current_user.fullname, user_path(current_user), class: "nav-link"
-            %li.nav-item
+            %li.nav-item.d-flex.align-items-center
               = link_to 'Log out', logout_path, class: 'btn btn-danger', method: :delete
         - else 
           %ul.navbar-nav
@@ -35,6 +35,6 @@
               %a#navbarDropdown.nav-link{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", "data-bs-auto-close" => "outside", :href => "#", :role => "button"}
                 Log in
               = render 'layouts/dropdown_login'
-            %li.nav-item
+            %li.nav-item.d-flex.align-items-center
               = link_to 'Sign up', signup_path, class: 'btn btn-success'
 
