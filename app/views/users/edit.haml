@@ -3,3 +3,12 @@
     .col-12.col-lg-10
       %h1.text-center Edit your profile
       = render 'form', user: @user
+  .row.justify-content-center
+    .col-12.col-lg-10
+      %h1.text-center Delete your account
+      .mt-4
+        .shadow.p-3.mb-5.bg-light-blue.rounded
+          %p.fw-bolder.text-danger.text-center WARNING: By pressing the button below, you will delete your account and all your articles. This step cannot be undone!
+          .text-center
+            = form_with(model: @user, class: "form-inline", local: true, url: user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }) do |f|
+              = f.submit 'Delete account', class: "btn btn-danger btn-lg"
