@@ -66,3 +66,5 @@ gem "faker", "~> 2.19"
 gem "will_paginate", "~> 3.3"
 
 gem 'will_paginate-bootstrap-style'
+
+gem "redcarpet", "~> 3.5"
