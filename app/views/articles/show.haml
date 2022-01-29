@@ -18,5 +18,5 @@
               by 
               = link_to @article.user.fullname, user_path(@article.user), class:'user-link mx-1'
             %hr.mx-auto.w-50
-            .card-text.text-start= simple_format(@article.description)
+            .card-text.text-start= markdown(@article.description)
           .card-footer.text-muted
