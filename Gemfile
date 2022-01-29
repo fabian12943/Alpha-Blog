@@ -68,3 +68,5 @@ gem "will_paginate", "~> 3.3"
 gem 'will_paginate-bootstrap-style'
 
 gem "redcarpet", "~> 3.5"
+
+gem "coderay", "~> 1.1"
