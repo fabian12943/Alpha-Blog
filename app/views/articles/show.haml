@@ -1,11 +1,12 @@
 .container.mt-4
   .row.justify-content-center
     .col-12.col-lg-10
-      .d-flex.justify-content-end
-        = link_to 'Edit', edit_article_path(@article), class:'btn btn-outline-primary btn-lg d-none d-lg-block mx-2'
-        = link_to "Edit", edit_article_path(@article), class:'btn btn-outline-primary btn-md d-block d-lg-none mx-2'
-        = link_to 'Delete', @article, class:'btn btn-outline-danger btn-lg d-none d-lg-block', method: :delete, data: { confirm: 'Are you sure?' }
-        = link_to 'Delete', @article, class:'btn btn-outline-danger btn-md d-block d-lg-none', method: :delete, data: { confirm: 'Are you sure?' }
+      - if logged_in? && current_user ==  @article.user
+        .d-flex.justify-content-end
+          = link_to 'Edit', edit_article_path(@article), class:'btn btn-outline-primary btn-lg d-none d-lg-block mx-2'
+          = link_to "Edit", edit_article_path(@article), class:'btn btn-outline-primary btn-md d-block d-lg-none mx-2'
+          = link_to 'Delete', @article, class:'btn btn-outline-danger btn-lg d-none d-lg-block', method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Delete', @article, class:'btn btn-outline-danger btn-md d-block d-lg-none', method: :delete, data: { confirm: 'Are you sure?' }
       .mt-3
         .card.text-center.my-3
           .card-header.text-muted.d-flex.justify-content-end
