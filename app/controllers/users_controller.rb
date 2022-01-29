@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :require_login, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 12)
@@ -39,6 +41,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :username, :password)
+  end
+
+  def require_same_user
+    if current_user != @user
+      redirect_to @user, alert: "You are not authorized to edit this user's profile."
+    end
   end
   
 end
