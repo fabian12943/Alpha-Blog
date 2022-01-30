@@ -3,6 +3,10 @@
   %h3.text-muted= "@" + @user.username
   .mt-3
     = image_tag gravatar_url_for(@user, size: 200), class: "avatar mx-auto d-block shadow mt-3", alt: "Avatar of #{@user.fullname}"
+  - if @user.admin?
+    .admin-tag.w-75.mt-4
+      %i.bi.bi-lightning-charge-fill#admin-icon
+      Admin
   - if logged_in? && current_user == @user
     .mt-4
       = link_to 'Edit profile information', edit_user_url(@user), class: 'btn btn-outline-primary btn-lg'
