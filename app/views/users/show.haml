@@ -12,7 +12,7 @@
       = link_to 'Edit profile information', edit_user_url(@user), class: 'btn btn-outline-primary btn-lg'
   .cards-page
     .container.all-articles.mt-4
-      %h3.text-center= @user.articles.count > 0 ? "All articles by #{@user.fullname}" : "Unfortunately #{@user.fullname} has not <br> published any articles yet 😔".html_safe
+      %h3.text-center= @user.articles.count > 0 ? "All articles by #{@user.fullname}" : "Unfortunately this user has not published any articles yet 😔"
       .row.align-items-lg-center.justify-content-center
         - @articles.each do |article|
           .col-lg-6.d-flex.align-self-stretch
