@@ -17,7 +17,7 @@ module ApplicationHelper
     case type
     when "notice" then "alert alert-success"
     when "alert" then "alert alert-danger"
-    default "alert alert-info"
+    else "alert alert-info"
     end
   end
 
