@@ -23,10 +23,12 @@
           %input.form-control.me-4{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
         - if logged_in?
           %ul.navbar-nav.list-group.list-group-horizontal
-            %li.nav-item
-              .d-flex.justify-content-center.align-items-center
-                = link_to image_tag(gravatar_url_for(current_user, size: 35), class: 'avatar shadow', alt: "Avatar of #{current_user.fullname}"), user_path(current_user)
-                = link_to current_user.fullname, user_path(current_user), class: "nav-link"
+            %li.nav-item.d-flex.align-items-center
+              = link_to image_tag(gravatar_url_for(current_user, size: 35), class: 'avatar shadow', alt: "Avatar of #{current_user.fullname}"), user_path(current_user)
+              = link_to user_path(current_user), :class=> "nav-link" do
+                = current_user.fullname
+                - if current_user.admin?
+                  %i.bi.bi-lightning-charge-fill.ms-1#admin-icon
             %li.nav-item.d-flex.align-items-center
               = link_to 'Log out', logout_path, class: 'btn btn-danger', method: :delete
         - else 
