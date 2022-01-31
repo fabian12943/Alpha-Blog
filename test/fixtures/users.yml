@@ -1,0 +1,8 @@
+<% require 'bcrypt' %>
+
+first:
+  first_name: John
+  last_name: Doe
+  username: jdoe22
+  email: john.doe@example.com
+  password_digest: <%= BCrypt::Password.create("password") %>
