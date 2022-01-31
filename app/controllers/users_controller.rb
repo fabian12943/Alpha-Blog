@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:edit, :update, :destroy]
-  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_same_user_or_admin, only: [:edit, :update, :destroy]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 12)
@@ -35,8 +35,13 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    session[:user_id] = nil
-    redirect_to articles_path, notice: "Your profile and all of your articles were successfully deleted."
+    if @user == current_user
+      session[:user_id] = nil 
+      message = "Your profile and all of your articles were successfully deleted."
+    else
+      message = "The user @#{@user.username} and all of his/her articles were successfully deleted."
+    end
+    redirect_to articles_path, notice: message
   end
 
   private 
@@ -49,8 +54,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :username, :password)
   end
 
-  def require_same_user
-    if current_user != @user
+  def require_same_user_or_admin
+    if current_user != @user && !current_user.admin?
       redirect_to @user, alert: "You are not authorized to edit this user's profile."
     end
   end
