@@ -1,0 +1,16 @@
+= render 'shared/error_alert', model: category
+.mt-4
+  = form_with(model: category, class: "shadow p-3 mb-5 bg-light-blue rounded", local: true) do |f|
+    - invalid = category.errors.include?(:name)
+    .form-group.row.mt-3
+      = f.label :name, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'name'
+      .col-md-10.col-sm-9
+        = f.text_field :name, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'name', placeholder: 'Name of category'
+        .invalid-feedback.d-block
+          .ul
+          - category.errors.full_messages_for(:name).each do |error_message|
+            .li= error_message
+    .form-group.row.mt-3.justify-content-end
+      .col-auto
+        - submit_label_name = category.persisted? ? 'Update category' : 'Create category'
+        = f.submit submit_label_name, class: "btn btn-outline-success btn-lg"

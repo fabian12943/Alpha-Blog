@@ -1,0 +1,14 @@
+.container.mt-4
+  .row.justify-content-center
+    .col-12.col-lg-10
+      %h1.text-center= "Edit category '#{@category.name}'"
+      = render 'form', category: @category
+  .row.justify-content-center
+    .col-12.col-lg-10
+      %h1.text-center Delete category
+      .mt-4
+        .shadow.p-3.mb-5.bg-light-blue.rounded
+          %p.fw-bolder.text-danger.text-center WARNING: By pressing the button below, this category will be deleted and removed from all associated articles. This step cannot be undone!
+          .text-center
+            = form_with(model: @category, class: "form-inline", local: true, url: category_url(@category), method: :delete, data: { confirm: 'Are you sure?' }) do |f|
+              = f.submit 'Delete account', class: "btn btn-danger btn-lg"

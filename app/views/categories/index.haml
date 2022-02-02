@@ -1,0 +1,16 @@
+.container.relative
+  %h1.text-center.mt-4 All categories
+  - if logged_in? && current_user.admin?
+    .right-corner-of-parent 
+      = link_to 'Create new category', new_category_path, class: 'btn btn-success btn-lg d-none d-lg-block mx-2'
+      = link_to "New", new_category_path, class:'btn btn-success btn-md d-block d-lg-none mx-2'
+.cards-page
+  .container.mt-3
+    .row.align-items-lg-center.justify-content-center
+      - if !@categories.any?
+        %h3.text-center No categories created so far.
+      - @categories.each do |category|
+        .col-lg-3.col-md-4.col-sm-6.d-flex.align-self-stretch
+          = render 'category', category: category
+  .container.mt-5.pagination.justify-content-center
+    = will_paginate @articles, previous_label: 'Previous', next_label: 'Next'

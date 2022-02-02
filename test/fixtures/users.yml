@@ -6,3 +6,4 @@ first:
   username: jdoe22
   email: john.doe@example.com
   password_digest: <%= BCrypt::Password.create("password") %>
+  admin: true

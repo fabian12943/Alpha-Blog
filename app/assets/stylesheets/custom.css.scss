@@ -176,3 +176,20 @@ a.user-link:hover {
   max-width: 200px;
   min-width: fit-content
 }
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.relative {
+  position: relative;
+}
+
+.right-corner-of-parent {
+  position: absolute;
+  top: 0;
+  padding: inherit;
+  right: 0;
+}

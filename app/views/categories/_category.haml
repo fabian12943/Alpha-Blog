@@ -1,0 +1,10 @@
+.card.text-center.my-3.clickable
+  = link_to '', articles_path, class: 'stretched-link'
+  = image_tag "placeholder.jpeg", class: 'card-img-top'
+  .card-body
+    %h5.card-title= category.name
+    - if logged_in? && current_user.admin?
+      = link_to 'Edit', edit_category_path(category), class: 'btn btn-outline-primary overlap-streched-link'
+      = link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger overlap-streched-link"
+  %ul.list-group.list-group-flush
+    %li.list-group-item X articles
