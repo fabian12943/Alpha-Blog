@@ -17,6 +17,8 @@
                 %hr.dropdown-divider
                 = link_to "All categories...", categories_path, class: "dropdown-item"
           %li.nav-item
+            = link_to "Categories", categories_path, class: "nav-link"
+          %li.nav-item
             = link_to "Bloggers", users_path, class: "nav-link"
         %form.d-flex.mb-2.mb-lg-0
           %input.form-control.me-4{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
