@@ -18,6 +18,10 @@ body {
   height: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 .main {
   padding-top: 1rem;
   padding-bottom: 2rem;
@@ -108,7 +112,6 @@ svg {
 }
 
 a.user-link {
-  text-decoration: none;
   color: inherit;
   z-index: 1;
   position: relative;
