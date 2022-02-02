@@ -8,8 +8,8 @@
         = f.text_field :name, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'name', placeholder: 'Name of category'
         .invalid-feedback.d-block
           .ul
-          - category.errors.full_messages_for(:name).each do |error_message|
-            .li= error_message
+            - category.errors.full_messages_for(:name).each do |error_message|
+              .li= error_message
     .form-group.row.mt-3.justify-content-end
       .col-auto
         - submit_label_name = category.persisted? ? 'Update category' : 'Create category'

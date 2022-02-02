@@ -8,8 +8,8 @@
         = f.text_field :first_name, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'first_name', placeholder: 'John'
         .invalid-feedback.d-block
           .ul
-          - user.errors.full_messages_for(:first_name).each do |error_message|
-            .li= error_message
+            - user.errors.full_messages_for(:first_name).each do |error_message|
+              .li= error_message
     - invalid = user.errors.include?(:last_name)
     .form-group.row.mt-3
       = f.label :last_name, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'last_name'
@@ -17,8 +17,8 @@
         = f.text_field :last_name, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'last_name', placeholder: 'Doe'
         .invalid-feedback.d-block
           .ul
-          - user.errors.full_messages_for(:last_name).each do |error_message|
-            .li= error_message
+            - user.errors.full_messages_for(:last_name).each do |error_message|
+              .li= error_message
     - invalid = user.errors.include?(:username)
     .form-group.row.mt-3
       = f.label :username, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'username'
@@ -26,8 +26,8 @@
         = f.text_field :username, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'username', placeholder: 'johndoe123'
         .invalid-feedback.d-block
           .ul
-          - user.errors.full_messages_for(:username).each do |error_message|
-            .li= error_message
+            - user.errors.full_messages_for(:username).each do |error_message|
+              .li= error_message
     - invalid = user.errors.include?(:email)
     .form-group.row.mt-3
       = f.label :email, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'email'
@@ -35,8 +35,8 @@
         = f.email_field :email, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'email', placeholder: 'johndoe@example.com'
         .invalid-feedback.d-block
           .ul
-          - user.errors.full_messages_for(:email).each do |error_message|
-            .li= error_message
+            - user.errors.full_messages_for(:email).each do |error_message|
+              .li= error_message
     - invalid = user.errors.include?(:password)
     .form-group.row.mt-3
       = f.label :password, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'password'
@@ -44,8 +44,8 @@
         = f.password_field :password, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'password', placeholder: 'Password'
         .invalid-feedback.d-block
           .ul
-          - user.errors.full_messages_for(:password).each do |error_message|
-            .li= error_message
+            - user.errors.full_messages_for(:password).each do |error_message|
+              .li= error_message
     .form-group.row.mt-3.justify-content-end
       .col-auto
         - submit_label_name = user.persisted? ? 'Update account' : 'Sign up'

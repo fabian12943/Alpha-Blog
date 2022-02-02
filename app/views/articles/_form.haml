@@ -8,8 +8,8 @@
         = f.text_field :title, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'title', placeholder: 'Title of your article'
         .invalid-feedback.d-block
           .ul
-          - article.errors.full_messages_for(:title).each do |error_message|
-            .li= error_message
+            - article.errors.full_messages_for(:title).each do |error_message|
+              .li= error_message
     - invalid = article.errors.include?(:description)
     .form-group.row.mt-3
       = f.label :description, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'description'
@@ -17,8 +17,8 @@
         = f.text_area :description, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'description', placeholder: 'Description of your article', rows: 10
         .invalid-feedback.d-block
           .ul
-          - article.errors.full_messages_for(:description).each do |error_message|
-            .li= error_message
+            - article.errors.full_messages_for(:description).each do |error_message|
+              .li= error_message
     .form-group.row.mt-3.justify-content-end
       .col-auto
         - submit_label_name = article.persisted? ? 'Update article' : 'Create article'
