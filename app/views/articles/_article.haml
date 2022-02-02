@@ -3,8 +3,9 @@
   .card-header 
     by 
     = link_to article.user.fullname, user_path(article.user), class:'user-link'
-  .card-body.d-flex.flex-column
-    %h5.card-title= truncate(article.title, length: 100, separator: /\s/, omission: ' [...]')
+  .card-body.d-flex.flex-column.align-items-center
+    %h4.card-title= truncate(article.title, length: 100, separator: /\s/, omission: ' [...]')
+    %hr.mx-auto.w-75
     %p.card-text= truncate(article.description, length: 300, separator: /\s/, omission: ' [...]')
   .card-footer.text-muted
     %small= "Created #{time_ago_in_words(article.created_at)} ago, edited #{time_ago_in_words(article.updated_at)} ago"
