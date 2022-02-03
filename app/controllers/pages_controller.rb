@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  @@AMOUNT_OF_ARTICLES = 6
+  @@AMOUNT_OF_ARTICLES = 4
 
   def home
     redirect_to articles_path if logged_in?
