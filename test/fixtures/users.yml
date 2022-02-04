@@ -1,9 +1,20 @@
 <% require 'bcrypt' %>
+<% DEFAULT_PASSWORD = 'password' %>
 
-first:
+admin:
   first_name: John
   last_name: Doe
   username: jdoe22
   email: john.doe@example.com
-  password_digest: <%= BCrypt::Password.create("password") %>
+  password_digest: <%= BCrypt::Password.create(DEFAULT_PASSWORD) %>
   admin: true
+
+<% 10.times do |i| %>
+user_<%= i %>:
+  first_name: <%= Faker::Name.first_name %>
+  last_name: <%= Faker::Name.last_name %>
+  username: <%= Faker::Internet.user_name %>
+  email: <%= Faker::Internet.email %>
+  password_digest: <%= BCrypt::Password.create(DEFAULT_PASSWORD) %>
+  admin: false
+<% end %>

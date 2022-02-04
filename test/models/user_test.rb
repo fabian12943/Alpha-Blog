@@ -72,7 +72,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "username should be unique" do
-    @user.username = users(:first).username
+    @user.username = users(:user_1).username
     assert_not @user.valid?, "Validated user despite duplicate username."
   end
 
@@ -94,7 +94,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email should be unique" do
-    @user.email = users(:first).email
+    @user.email = users(:user_1).email
     assert_not @user.valid?, "Validated user despite duplicate email."
   end
 
