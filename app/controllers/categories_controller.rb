@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
   end
 
   def require_admin
-    if !logged_in? || !current_user.admin?
+    if !(logged_in? && current_user.admin?)
       redirect_to categories_path, alert: "You are not authorized to access this section."
     end
   end
