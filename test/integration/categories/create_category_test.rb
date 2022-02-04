@@ -4,7 +4,7 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
 
   setup do
     @category = categories(:first)
-    sign_in_as users(:first)
+    sign_in_as users(:admin)
   end
 
   test "get new category form and create category" do
@@ -16,6 +16,19 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
     assert_select ".card-title", "NewTag"
+  end
+
+  test "reject get new category form if not admin" do
+    sign_in_as users(:user_1)
+    get "/categories/new"
+    assert_response :redirect
+  end
+
+  test "reject create category if not admin" do
+    sign_in_as users(:user_1)
+    assert_no_difference "Category.count" do
+      post categories_path, params: { category: { name: "NewTag" } }
+    end
   end
 
   test "get new category form and reject blank name" do
