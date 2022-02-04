@@ -5,7 +5,12 @@ class ArticlesController < ApplicationController
   before_action :require_same_user_or_admin, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    if request.query_parameters[:categories].present?
+      category_names = request.query_parameters[:categories].split(',')
+      @articles = articles_with_categories(category_names)
+    end
+    @articles = Article.all if @articles.nil? || @articles.empty?
+    @articles = @articles.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -53,6 +58,12 @@ class ArticlesController < ApplicationController
     if current_user != @article.user && !current_user.admin?
       redirect_to @article, alert: "You are not authorized to edit or delete this article."
     end
+  end
+
+  def articles_with_categories(category_names)
+    category_ids = Category.where(name: category_names).pluck(:id)
+    article_ids = ArticleCategory.where(category_id: category_ids).pluck(:article_id)
+    @articles = Article.where(id: article_ids)
   end
 
 end

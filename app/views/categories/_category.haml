@@ -1,5 +1,5 @@
 .card.text-center.my-3.clickable
-  = link_to '', articles_path, class: 'stretched-link'
+  = link_to '', articles_path(categories: category.name), class: 'stretched-link'
   = image_tag "placeholder.jpeg", class: 'card-img-top'
   .card-body
     %h5.card-title= category.name
