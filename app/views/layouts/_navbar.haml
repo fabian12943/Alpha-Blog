@@ -15,6 +15,11 @@
                 - if logged_in?
                   = link_to 'Create new article', new_article_path, class:'dropdown-item'
                 %hr.dropdown-divider
+                %h6.dropdown-header Popular categories
+                - ArticleCategory.most_used_categories(6).each do |category|
+                  %li
+                    = link_to category.name, articles_path(categories: category.name), class: "dropdown-item"
+                %hr.dropdown-divider
                 = link_to "All categories...", categories_path, class: "dropdown-item"
           %li.nav-item
             = link_to "Categories", categories_path, class: "nav-link"
