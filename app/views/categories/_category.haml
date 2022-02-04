@@ -7,4 +7,4 @@
       = link_to 'Edit', edit_category_path(category), class: 'btn btn-outline-primary overlap-streched-link'
       = link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger overlap-streched-link"
   %ul.list-group.list-group-flush
-    %li.list-group-item X articles
+    %li.list-group-item= category.articles.count == 1 ? "#{category.articles.count} article" : "#{category.articles.count} articles"
