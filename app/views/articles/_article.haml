@@ -4,6 +4,8 @@
     by 
     = link_to article.user.fullname, user_path(article.user), class:'user-link'
   .card-body.d-flex.flex-column.align-items-center
+    .mb-4
+      = render 'categories/category_tags', article: article
     %h4.card-title= truncate(article.title, length: 100, separator: /\s/, omission: ' [...]')
     %hr.mx-auto.w-75
     %p.card-text= truncate(article.description, length: 300, separator: /\s/, omission: ' [...]')

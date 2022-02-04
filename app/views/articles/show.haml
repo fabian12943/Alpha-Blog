@@ -12,6 +12,8 @@
           .card-header.text-muted.d-flex.justify-content-end
             %small= "Created #{time_ago_in_words(@article.created_at)} ago, edited #{time_ago_in_words(@article.updated_at)} ago"
           .card-body
+            .mb-3
+              = render 'categories/category_tags', article: @article
             %h2.card-title.mx-auto.w-md-75= @article.title
             %p.lead.text-muted.d-flex.align-items-center.justify-content-center
               = link_to image_tag(gravatar_url_for(@article.user, size: 45), class: 'avatar shadow mx-2', alt: "Avatar of #{@article.user.fullname}"), user_path(@article.user)
