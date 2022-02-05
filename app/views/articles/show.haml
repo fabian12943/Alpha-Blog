@@ -20,5 +20,6 @@
               by 
               = link_to @article.user.fullname, user_path(@article.user), class:'user-link mx-1'
             %hr.mx-auto.w-50
-            .card-text.text-start= markdown(@article.content)
+            .container.mx-lg-5
+              .card-text.text-start= markdown(@article.content)
           .card-footer.text-muted
