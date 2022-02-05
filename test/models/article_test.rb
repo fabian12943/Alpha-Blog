@@ -9,6 +9,7 @@ class ArticleTest < ActiveSupport::TestCase
   def valid_article
     Article.new(title: "Valid Title",
                 description: "Valid Description",
+                content: "Valid Content",
                 user: User.first)
   end
 
@@ -28,7 +29,7 @@ class ArticleTest < ActiveSupport::TestCase
   end
 
   test "title should not be too long" do
-    max_length = 120
+    max_length = 100
     @article.title = "a" * (max_length + 1)
     assert_not @article.valid?, "Validated article despite title longer than #{max_length} characters."
   end
@@ -45,9 +46,26 @@ class ArticleTest < ActiveSupport::TestCase
   end
   
   test "description should not be too long" do
-    max_length = 10000
+    max_length = 300
     @article.description = "a" * (max_length + 1)
     assert_not @article.valid?, "Validated article despite description longer than #{max_length} characters."
+  end
+
+  test "content should be given" do
+    @article.content = nil
+    assert_not @article.valid?, "Validated article despite missing content."
+  end
+
+  test "content should not be too short" do
+    min_length = 10
+    @article.content = "a" * (min_length - 1)
+    assert_not @article.valid?, "Validated article despite content shorter than #{min_length} characters."
+  end
+
+  test "content should not be too long" do
+    max_length = 10000
+    @article.content = "a" * (max_length + 1)
+    assert_not @article.valid?, "Validated article despite content longer than #{max_length} characters."
   end
   
   test "author should be given" do

@@ -14,16 +14,25 @@
     .form-group.row.mt-3
       = f.label :description, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'description'
       .col-md-10.col-sm-9
-        = f.text_area :description, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'description', placeholder: 'Description of your article', rows: 10
+        = f.text_area :description, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'description', placeholder: 'Short description of your article', rows: 2
         .invalid-feedback.d-block
           .ul
             - article.errors.full_messages_for(:description).each do |error_message|
+              .li= error_message
+    - invalid = article.errors.include?(:content)
+    .form-group.row.mt-3
+      = f.label :content, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'content'
+      .col-md-10.col-sm-9
+        = f.text_area :content, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'content', placeholder: 'Content of your article (may contain markdown syntax)', rows: 8
+        .invalid-feedback.d-block
+          .ul
+            - article.errors.full_messages_for(:content).each do |error_message|
               .li= error_message
     - invalid = article.errors.include?(:category_ids)
     .form-group.row.mt-3
       = f.label 'Categories', class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'category'
       .col-md-10.col-sm-9
-        = f.collection_select(:category_ids, Category.order(name: :asc), :id, :name, { }, { multiple: true, size: 8, class: 'form-select shadow-sm rounded' })
+        = f.collection_select(:category_ids, Category.order(name: :asc), :id, :name, { }, { multiple: true, size: 4, class: 'form-select shadow-sm rounded' })
         .invalid-feedback.d-block
           .ul
             - article.errors.full_messages_for(:category_ids).each do |error_message|
