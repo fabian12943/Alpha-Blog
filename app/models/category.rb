@@ -1,8 +1,8 @@
 class Category < ApplicationRecord
   PAGE_LIMIT = 12
 
-  has_many :article_categories
-  has_many :articles, through: :article_categories
+  has_many :article_categories, dependent: :destroy
+  has_many :articles, through: :article_categories, dependent: :destroy
 
   before_validation { self.tag_color.sub!(/^#/, '') }
 
