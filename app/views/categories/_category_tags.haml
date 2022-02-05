@@ -5,6 +5,5 @@
         .category-tag{style: "background-color: ##{category.tag_color}"}
           %p= category.name
   - else
-    = link_to articles_path, class: "overlap-streched-link" do
-      .category-tag
-        %p= "Undefined category"
+    .category-tag.overlap-streched-link
+      %p= "No category defined"
