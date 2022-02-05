@@ -25,8 +25,6 @@
             = link_to "Categories", categories_path, class: "nav-link"
           %li.nav-item
             = link_to "Bloggers", users_path, class: "nav-link"
-        %form.d-flex.mb-2.mb-lg-0
-          %input.form-control.me-4{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
         - if logged_in?
           %ul.navbar-nav.list-group.list-group-horizontal
             %li.nav-item.d-flex.align-items-center
