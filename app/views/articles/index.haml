@@ -1,4 +1,11 @@
-%h1.text-center.mt-4 All articles
+- if @categories != nil
+  - categories = []
+  - @categories.each do |category|
+    - categories << category.name
+.text-center
+  %h1.mt-4= "All articles" + (@categories.blank? ? "" : " in #{categories.to_sentence}")
+  - if !@categories.blank?
+    = link_to 'Show all articles', @article, class:'btn btn-outline-primary btn-lg mt-2'
 .cards-page
   .container.all-articles.mt-3
     .row.align-items-lg-center.justify-content-center

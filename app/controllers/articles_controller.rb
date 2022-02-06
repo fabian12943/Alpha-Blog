@@ -6,10 +6,12 @@ class ArticlesController < ApplicationController
 
   def index
     if request.query_parameters[:categories].present?
-      category_names = request.query_parameters[:categories].split(',')
-      @articles = articles_with_categories(category_names)
+      @categories = get_valid_categories_from_names(request.query_parameters[:categories])
+      redirect_to articles_path, alert: 'Invalid category name(s)!' if @categories.empty?
+      @articles = Article.joins(:article_categories).where(article_categories: { category_id: @categories.map(&:id) }).distinct
+      redirect_to articles_path, alert: 'No articles of specified category were found!' if @articles.empty?
     end
-    @articles = Article.all if @articles.nil? || @articles.empty?
+    @articles = Article.all if @articles.nil?
     @articles = @articles.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
@@ -60,10 +62,13 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def articles_with_categories(category_names)
-    category_ids = Category.where(name: category_names).pluck(:id)
-    article_ids = ArticleCategory.where(category_id: category_ids).pluck(:article_id)
-    @articles = Article.where(id: article_ids)
+  def get_valid_categories_from_names(category_names, split_char = ',')
+    valid_categories = []
+    category_names.split(split_char).map do |category_name|
+      category = Category.find_by(name: category_name)
+      valid_categories << category if !category.nil? && !valid_categories.include?(category)
+    end
+    valid_categories
   end
 
 end
