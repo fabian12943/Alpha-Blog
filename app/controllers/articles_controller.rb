@@ -7,9 +7,8 @@ class ArticlesController < ApplicationController
   def index
     if request.query_parameters[:categories].present?
       @categories = get_valid_categories_from_names(request.query_parameters[:categories])
-      redirect_to articles_path, alert: 'Invalid category name(s)!' if @categories.empty?
       @articles = Article.joins(:article_categories).where(article_categories: { category_id: @categories.map(&:id) }).distinct
-      redirect_to articles_path, alert: 'No articles of specified category were found!' if @articles.empty?
+      redirect_to articles_path, alert: 'No articles with specified category name(s) were found!' if @articles.empty?
     end
     @articles = Article.all if @articles.nil?
     @articles = @articles.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
