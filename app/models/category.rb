@@ -6,7 +6,7 @@ class Category < ApplicationRecord
 
   before_validation { self.tag_color.sub!(/^#/, '') }
 
-  validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 15 }
+  validates :name, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 2, maximum: 15 }
   validates :tag_color, presence: true, length: { minimum: 6, maximum: 6 }
 
 end
