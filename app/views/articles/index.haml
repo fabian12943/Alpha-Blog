@@ -3,6 +3,7 @@
   - @categories.each do |category|
     - categories << category.name
 .text-center.mx-5
+  %h1.mt-4= "All articles" + (@categories.blank? ? "" : " of #{"category".pluralize(categories.count)} #{categories.to_sentence}")
   - if !@categories.blank?
     = link_to 'Show all articles', @article, class:'btn btn-outline-primary btn-lg mt-2'
 .cards-page
