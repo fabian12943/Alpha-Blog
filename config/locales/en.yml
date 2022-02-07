@@ -38,3 +38,9 @@ en:
             category_ids:
               format: "%{message}"
               too_long: "A maximum of %{count} categories can be associated with the article"
+        category:
+          attributes:
+            image:
+              min_size_error: "size must be equal or grearter than %{min_size}"
+              max_size_error: "size must be less than %{max_size}"
+              content_type: "content type is not allowed"

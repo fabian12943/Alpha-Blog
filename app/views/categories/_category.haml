@@ -1,6 +1,6 @@
 .card.text-center.my-3.clickable
   = link_to '', articles_path(categories: category.name), class: 'stretched-link'
-  = image_tag "placeholder.jpg", class: 'card-img-top'
+  = image_tag (category.image.present? ? category.image : "placeholder.jpg") , class: 'card-img-top'
   .card-body
     %h5.card-title= category.name
     - if logged_in? && current_user.admin?

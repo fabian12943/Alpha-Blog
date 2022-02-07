@@ -39,7 +39,7 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :tag_color)
+    params.require(:category).permit(:name, :tag_color, :image)
   end
 
   def require_admin
