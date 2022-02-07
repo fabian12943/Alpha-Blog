@@ -23,7 +23,7 @@
     .form-group.row.mt-3
       = f.label :content, class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'content'
       .col-md-10.col-sm-9
-        = f.text_area :content, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'content', placeholder: 'Content of your article (may contain markdown syntax)', rows: 8
+        = f.text_area :content, class: [('form-control shadow-sm rounded'), ('is-invalid' if invalid)], id: 'content', placeholder: 'Content of your article (may contain Markdown or HTML)', rows: 8
         .invalid-feedback.d-block
           .ul
             - article.errors.full_messages_for(:content).each do |error_message|

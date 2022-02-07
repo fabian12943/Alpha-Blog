@@ -29,9 +29,9 @@ module ApplicationHelper
   end
  
   def markdown(text)
-    coderayified = CodeRayify.new(:filter_html => true, :hard_wrap => true)
+    coderayified = CodeRayify.new(:filter_html => false, :hard_wrap => true, :safe_links_only => true)
     options = {
-    fenced_code_blocks: true,
+      fenced_code_blocks: true,
       no_intra_emphasis: true,
       autolink: true,
       lax_html_blocks: true
