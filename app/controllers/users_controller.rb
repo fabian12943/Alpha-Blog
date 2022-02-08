@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to @user, notice: "Welcome to the Alpha Blog, #{@user.fullname}! You have successfully signed up."
+      NotificationMailer.user_signup_notification(@user).deliver
     else
       render 'new'
     end
