@@ -13,7 +13,7 @@ class NotificationMailerTest < ActionMailer::TestCase
     end
 
     assert_equal email.to, [@user.email]
-    assert_equal email.from, ['alpha-blog@schwarz-fabian.de']
+    assert_equal email.from, [Rails.application.credentials.sendgrid[:email]]
     assert_equal email.subject, 'Welcome to the Alpha-Blog!'
     assert_not_nil email.attachments['logo.png'], "No logo.png attached to email"
     assert_match 'Welcome to the Alpha Blog, ' + @user.first_name, email.body.encoded
