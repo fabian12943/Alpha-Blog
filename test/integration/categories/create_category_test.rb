@@ -7,15 +7,23 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
     sign_in_as users(:admin)
   end
 
+  def valid_category_params
+    { name: "Test", 
+      tag_color: "89CFF0", 
+      image: fixture_file_upload("test/fixtures/files/test_image.jpg", "image/jpg",
+      ) 
+    }
+  end
+
   test "get new category form and create category" do
     get "/categories/new"
     assert_response :success
-    assert_difference "Category.count", 1 do
-      post categories_path, params: { category: { name: "NewTag" } }
+    assert_difference "Category.count", 1, "Did not create a new category" do
+      post categories_path, params: { category: valid_category_params }
     end
     assert_response :redirect
     follow_redirect!
-    assert_select ".card-title", "NewTag"
+    assert_select ".card-title", valid_category_params.fetch(:name)
   end
 
   test "reject get new category form if not admin" do
