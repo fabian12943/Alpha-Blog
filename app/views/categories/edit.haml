@@ -11,4 +11,4 @@
           %p.fw-bolder.text-danger.text-center WARNING: By pressing the button below, this category will be deleted and removed from all associated articles. This step cannot be undone!
           .text-center
             = form_with(model: @category, class: "form-inline", local: true, url: category_url(@category), method: :delete, data: { confirm: 'Are you sure?' }) do |f|
-              = f.submit 'Delete account', class: "btn btn-danger btn-lg"
+              = f.submit 'Delete category', class: "btn btn-danger btn-lg"
