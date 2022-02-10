@@ -12,9 +12,9 @@ class NotificationMailerTest < ActionMailer::TestCase
       email.deliver_later
     end
 
-    assert_equal email.to, [@user.email]
-    assert_equal email.from, [Rails.application.credentials.sendgrid[:email]]
-    assert_equal email.subject, 'Welcome to the Alpha-Blog!'
+    assert_equal [@user.email], email.to
+    assert_equal [Rails.application.credentials.sendgrid[:email]], email.from
+    assert_equal 'Welcome to the Alpha-Blog!', email.subject
     assert_not_nil email.attachments['logo.png'], "No logo.png attached to email"
     assert_match 'Welcome to the Alpha Blog, ' + @user.first_name, email.body.encoded
   end
