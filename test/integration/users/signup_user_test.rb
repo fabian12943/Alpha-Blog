@@ -14,7 +14,7 @@ class SignupUserTest < ActionDispatch::IntegrationTest
                                          password: "password" } }
     end
 
-    assert_equal 1, ActionMailer::Base.deliveries.size, "Did not send welcome mail email"
+    assert_equal 1, ActionMailer::Base.deliveries.size, "Did not send welcome mail to new user"
     assert_equal session[:user_id], User.last.id, "Did not set session[:user_id] to the new user's id"
   end
 
