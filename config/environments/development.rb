@@ -77,5 +77,8 @@ Rails.application.configure do
   # Preview email in the default browser instead of sending it by using Letter Opener gem
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
-  
+
+  host = Rails.application.credentials.action_mailer[:host][:development]
+  config.action_mailer.default_url_options = { host: host }
+
 end

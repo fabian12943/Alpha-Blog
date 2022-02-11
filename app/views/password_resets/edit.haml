@@ -1,0 +1,19 @@
+.container.mt-4
+  .row.justify-content-center
+    .col-12.col-lg-10
+      %h1.text-center Set a new password
+      = render 'shared/error_alert', model: @user
+      .mt-4
+        = form_with model: @user, url: password_reset_edit_path(token: params[:token]), class: "shadow p-3 mb-5 bg-light-blue rounded" do |f|
+          - invalid = @user.errors.include?(:password)
+          .form-group.row.mt-3
+            = f.label "New password", class: 'col-md-2 col-sm-3 col-form-label fw-bolder', for: 'password'
+            .col-md-10.col-sm-9
+              = f.password_field :password, class: 'form-control shadow-sm rounded', id: 'password', placeholder: 'New Password'
+              .invalid-feedback.d-block
+                .ul
+                  - @user.errors.full_messages_for(:password).each do |error_message|
+                    .li= error_message
+          .form-group.row.mt-3.justify-content-end
+            .col-auto
+              = f.submit "Reset password", class: "btn btn-outline-primary btn-lg"
