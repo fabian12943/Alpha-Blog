@@ -12,5 +12,6 @@
       - @articles.each do |article|
         .col-lg-6.d-flex.align-self-stretch
           = render 'article', article: article
-  .container.mt-5.pagination.justify-content-center
-    = will_paginate @articles, previous_label: 'Previous', next_label: 'Next'
+  - if @articles.count > Article::PAGE_LIMIT
+    .container.mt-5.pagination.justify-content-center
+      = will_paginate @articles, previous_label: 'Previous', next_label: 'Next'

@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  PAGE_LIMIT = 10
+
   belongs_to :user
 
   has_many :article_categories, dependent: :destroy

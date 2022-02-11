@@ -19,5 +19,6 @@
                     Admin
             .card-footer.text-muted
               %small.text-muted= "Joined #{time_ago_in_words(user.created_at)} ago"
-  .container.mt-5.pagination.justify-content-center
-    = will_paginate @articles, previous_label: 'Previous', next_label: 'Next'
+  - if @users.count > User::PAGE_LIMIT
+    .container.mt-5.pagination.justify-content-center
+      = will_paginate @user, previous_label: 'Previous', next_label: 'Next'

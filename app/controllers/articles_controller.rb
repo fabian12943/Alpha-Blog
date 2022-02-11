@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
       redirect_to articles_path, alert: 'No articles with specified category name(s) were found!' if @articles.empty?
     end
     @articles = Article.all if @articles.nil?
-    @articles = @articles.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    @articles = @articles.order(created_at: :desc).paginate(page: params[:page], per_page: Article::PAGE_LIMIT)
   end
 
   def new

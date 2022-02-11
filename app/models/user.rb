@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  PAGE_LIMIT = 12
+  PAGE_LIMIT_ARTICLES = 10
+  
   has_many :articles, dependent: :destroy
 
   has_secure_password

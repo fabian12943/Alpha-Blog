@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   before_action :require_same_user_or_admin, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 12)
+    @users = User.paginate(page: params[:page], per_page: User::PAGE_LIMIT)
   end
 
   def show
-    @articles = @user.articles.order(created_at: :desc).paginate(page: params[:page], per_page: 4)
+    @articles = @user.articles.order(created_at: :desc).paginate(page: params[:page], per_page: User::PAGE_LIMIT_ARTICLES)
   end
 
   def new
